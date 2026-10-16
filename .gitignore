@@ -21,6 +21,10 @@ main2.py
 # Model checkpoints
 training/**/*.pt
 
+# Keep the two final epoch-50 checkpoints
+!training/checkpoint_conditioned_ep50/checkpoint_epoch_50.pt
+!training/unconditional_checkpoint.pt
+
 # Generated training outputs
 training/generated_glasses_test/
 training/generated_hair_test/
