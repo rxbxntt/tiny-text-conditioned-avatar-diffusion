@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+
+# IDE
+.idea/
+
+# Internal project material
+doc/
+tests/
+
+# Local demo scripts
+main.py
+main2.py
+
+# Model checkpoints
+training/**/*.pt
+
+# Generated training outputs
+training/generated_glasses_test/
+training/generated_hair_test/
+training/generated_samples/
+training/outputs/
+
+# Evaluation outputs
+evaluation/evaluation/
+evaluation/ood/
+evaluation/kid_results/
