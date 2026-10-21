@@ -1,0 +1,71 @@
+{
+  "model": {
+    "checkpoint_epoch": 50,
+    "num_parameters": 5231171,
+    "image_size": 32,
+    "num_timesteps": 1000,
+    "cfg_enabled": true,
+    "cfg_dropout_probability": 0.1,
+    "guidance_scale": 2.0
+  },
+  "training": {
+    "train_loss": 0.002759,
+    "val_loss": 0.002785
+  },
+  "evaluation": {
+    "ordinary_test": {
+      "num_images": 515,
+      "kid": {
+        "mean": 0.4065232276916504,
+        "std": 0.014077696949243546,
+        "feature_extractor": "Inception-v3",
+        "feature_dimension": 2048,
+        "kernel": "(1 + <x,y>/d)^3",
+        "estimator": "unbiased MMD^2",
+        "seed": 42
+      }
+    },
+    "ood": {
+      "num_images": 230,
+      "kid": {
+        "mean": 0.4031831622123718,
+        "std": 0.008021294139325619,
+        "feature_extractor": "Inception-v3",
+        "feature_dimension": 2048,
+        "kernel": "(1 + <x,y>/d)^3",
+        "estimator": "unbiased MMD^2",
+        "seed": 42
+      }
+    }
+  },
+  "diversity": {
+    "metric": "mean_pairwise_pixel_L1",
+    "num_prompts": 5,
+    "seeds": [
+      42,
+      123,
+      456,
+      789,
+      1000
+    ],
+    "num_generated_images": 25,
+    "num_pairwise_comparisons": 50,
+    "mean": 0.019098830819129945,
+    "std": 0.004734662980256643
+  },
+  "sampling_time": {
+    "metric": "seconds_per_image",
+    "device": "Tesla T4",
+    "guidance_scale": 2.0,
+    "num_timesteps": 1000,
+    "warmup_runs": 1,
+    "measured_runs": 5,
+    "mean": 7.7368,
+    "std": 0.0571
+  },
+  "gpu_memory": {
+    "device": "Tesla T4",
+    "peak_allocated_mb": 199.58,
+    "peak_reserved_mb": 224.0
+  }
+}

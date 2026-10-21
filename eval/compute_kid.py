@@ -35,13 +35,13 @@ DATASET_ROOT = Path(
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-TEST_MANIFEST = PROJECT_ROOT / "evaluation" / "evaluation" / "ordinary_test" / "test_manifest.csv"
-TEST_GENERATED = PROJECT_ROOT / "evaluation" / "evaluation" / "ordinary_test"
+TEST_MANIFEST = PROJECT_ROOT / "final_evaluation" / "ordinary_test" / "ordinary_test_manifest.csv"
+TEST_GENERATED = PROJECT_ROOT / "final_evaluation" / "ordinary_test"
 
-OOD_MANIFEST = PROJECT_ROOT / "evaluation" / "ood" / "ood_manifest.csv"
-OOD_GENERATED = PROJECT_ROOT / "evaluation" / "ood"
+OOD_MANIFEST = PROJECT_ROOT / "final_evaluation" / "ood" / "ood_manifest.csv"
+OOD_GENERATED = PROJECT_ROOT / "final_evaluation" / "ood"
 
-OUTPUT_DIR = PROJECT_ROOT / "evaluation" / "kid_results"
+OUTPUT_DIR = PROJECT_ROOT / "final_evaluation" / "kid_results"
 
 BATCH_SIZE = 32
 

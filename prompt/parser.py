@@ -7,6 +7,8 @@ from prompt.attribute_mapping import (
     HAIR_MAP,
 )
 
+import re
+
 
 def normalize_prompt(prompt):
     prompt = prompt.lower().strip()
@@ -161,6 +163,23 @@ def parse_prompt(prompt):
         HAIR_MAP,
         "{word}",
     )
+
+    # Handle hair color inserted between hair-style words and "hair".
+    # Example:
+    # "long curly red hair" -> "long curly hair"
+    if not hair_style_matches:
+
+        hair_style_patterns = [
+            (r"\bshort curly(?: [a-z_]+)? hair\b", "short curly hair"),
+            (r"\blong curly(?: [a-z_]+)? hair\b", "long curly hair"),
+            (r"\blong straight(?: [a-z_]+)? hair\b", "long straight hair"),
+        ]
+
+        for pattern, hair_style in hair_style_patterns:
+            if re.search(pattern, prompt):
+                hair_style_matches.append(
+                    (hair_style, HAIR_MAP[hair_style])
+                )
 
     _set_single_attribute(
         attributes,

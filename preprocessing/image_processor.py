@@ -1,4 +1,3 @@
-import torch
 from torchvision import transforms
 
 
@@ -17,43 +16,24 @@ class ImagePreprocessor:
         2. conversione a tensor;
         3. normalizzazione opzionale.
 
-    La normalizzazione rimane configurabile perché la scelta
-    definitiva non è ancora stata presa.
+    3. conversione dei valori nell'intervallo [0, 1].
     """
 
-    def __init__(self, image_size=32, normalization="zero_one"):
-
+    def __init__(self, image_size=32):
         self.image_size = image_size
-        self.normalization = normalization
 
         if image_size <= 0:
             raise ValueError(
                 "image_size deve essere maggiore di 0."
             )
 
-        if normalization not in ("zero_one", "minus_one_one"):
-            raise ValueError(
-                "normalization deve essere "
-                "'zero_one' oppure 'minus_one_one'."
-            )
-
-        transform_list = [
+        self.transform = transforms.Compose([
             transforms.Resize(
                 (image_size, image_size),
                 interpolation=transforms.InterpolationMode.BILINEAR
             ),
             transforms.ToTensor()
-        ]
-
-        if normalization == "minus_one_one":
-            transform_list.append(
-                transforms.Normalize(
-                    mean=[0.5, 0.5, 0.5],
-                    std=[0.5, 0.5, 0.5]
-                )
-            )
-
-        self.transform = transforms.Compose(transform_list)
+        ])
 
     def __call__(self, image):
         """
