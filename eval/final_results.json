@@ -16,8 +16,8 @@
     "ordinary_test": {
       "num_images": 515,
       "kid": {
-        "mean": 0.4065232276916504,
-        "std": 0.014077696949243546,
+        "mean": -0.0024536848068237305,
+        "std": 0.0004973707254976034,
         "feature_extractor": "Inception-v3",
         "feature_dimension": 2048,
         "kernel": "(1 + <x,y>/d)^3",
@@ -28,8 +28,8 @@
     "ood": {
       "num_images": 230,
       "kid": {
-        "mean": 0.4031831622123718,
-        "std": 0.008021294139325619,
+        "mean": -0.0009448051569052041,
+        "std": 0.0005377206252887845,
         "feature_extractor": "Inception-v3",
         "feature_dimension": 2048,
         "kernel": "(1 + <x,y>/d)^3",

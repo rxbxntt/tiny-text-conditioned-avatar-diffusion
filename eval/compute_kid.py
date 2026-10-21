@@ -53,7 +53,6 @@ SEED = 42
 
 IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".webp"}
 
-
 class ImageDataset(Dataset):
     """Dataset of explicitly selected image paths."""
 
@@ -68,7 +67,9 @@ class ImageDataset(Dataset):
 
     def __getitem__(self, index: int) -> Image.Image:
         with Image.open(self.paths[index]) as image:
-            return image.convert("RGB").copy()
+            image = image.convert("RGB")
+            image = image.resize((32, 32), Image.Resampling.BILINEAR)
+            return image.copy()
 
 
 def get_sorted_dataset_images() -> List[Path]:
