@@ -35,7 +35,6 @@ class CartoonSetDataset(Dataset):
         - una immagine PNG
         - un file CSV con i relativi attributi
 
-    Il loader NON esegue il preprocessing 32x32.
     """
 
     def __init__(self, root_dir, expected_samples=10_000):
@@ -67,11 +66,8 @@ class CartoonSetDataset(Dataset):
 
             image_path <-> metadata_path
 
-        L'associazione viene fatta tramite il nome del file.
         """
-
         image_files = sorted(self.root_dir.glob("*.png"))
-
         samples = []
 
         for image_path in image_files:
@@ -97,12 +93,6 @@ class CartoonSetDataset(Dataset):
         """
         Legge il CSV associato a una immagine.
 
-        Esempio reale:
-
-            "eye_angle", 2, 3
-
-        Il primo valore numerico rappresenta il valore
-        dell'attributo per quella specifica immagine.
         """
 
         metadata = {}
@@ -155,7 +145,6 @@ class CartoonSetDataset(Dataset):
         """
         Apre e valida una immagine.
 
-        Il resize a 32x32 NON viene fatto qui.
         """
 
         try:

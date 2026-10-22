@@ -57,11 +57,13 @@ def parse_prompt(prompt):
     # Hair color
     # --------------------------------------------------
 
-    hair_color_matches = _find_matches(
-        prompt,
-        HAIR_COLOR_MAP,
-        "{word} hair",
-    )
+    hair_color_matches = []
+
+    for color, value in HAIR_COLOR_MAP.items():
+        pattern = rf"\b{re.escape(color)}(?: short| long| curly| straight)* hair\b"
+
+        if re.search(pattern, prompt):
+            hair_color_matches.append((color, value))
 
     _set_single_attribute(
         attributes,
@@ -173,6 +175,8 @@ def parse_prompt(prompt):
             (r"\bshort curly(?: [a-z_]+)? hair\b", "short curly hair"),
             (r"\blong curly(?: [a-z_]+)? hair\b", "long curly hair"),
             (r"\blong straight(?: [a-z_]+)? hair\b", "long straight hair"),
+            (r"\bshort(?: [a-z_]+)? hair\b", "short hair"),
+            (r"\blong(?: [a-z_]+)? hair\b", "long hair"),
         ]
 
         for pattern, hair_style in hair_style_patterns:

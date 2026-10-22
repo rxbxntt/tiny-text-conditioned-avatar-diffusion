@@ -54,5 +54,7 @@ HAIR_MAP = {
     "ponytail": 58,
     "long straight hair": 63,
     "top knot": 109,
+    "short hair": 99,
+    "long hair": 40
 }
 

@@ -7,12 +7,6 @@ def get_hair_eye_combination(metadata):
     """
     Returns the (hair_color, eye_color) combination of a sample.
 
-    Args:
-        metadata:
-            Dictionary containing the sample attributes.
-
-    Returns:
-        Tuple containing hair_color and eye_color.
     """
     hair_color = metadata["hair_color"]
     eye_color = metadata["eye_color"]
@@ -24,12 +18,6 @@ def count_hair_eye_combinations(dataset):
     Counts how many samples belong to each hair_color + eye_color
     combination.
 
-    Args:
-        dataset:
-            CartoonSetDataset instance.
-
-    Returns:
-        Counter mapping (hair_color, eye_color) -> number of samples.
     """
     combinations = Counter()
 

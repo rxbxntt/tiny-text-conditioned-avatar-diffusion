@@ -13,14 +13,7 @@ class DiffusionScheduler(nn.Module):
         - "linear"
         - "cosine"
 
-    Important:
-        The project decision O003 is still OPEN, so the schedule must be
-        selected explicitly by the caller.
 
-    For t in {0, ..., T-1}:
-        beta_t       = noise variance coefficient
-        alpha_t      = 1 - beta_t
-        alpha_bar_t  = product_{s=0}^t alpha_s
     """
 
     def __init__(
